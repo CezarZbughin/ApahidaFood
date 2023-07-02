@@ -1,0 +1,50 @@
+<div>
+  <div class="topbar" role="banner">
+    <p class = "title">Admin</p>
+  </div>
+
+  <div class="content">
+    <div>
+      <div class="lineDish">
+        <p class="header" style="width:2.5%">id</p>
+        <p class="header" style="width:20.5%">Name</p>
+        <p class="header" style="width:10.5%">Price</p>
+        <p class="header" style="width:10.5%">Stock</p> 
+        <p class="header" style="width:56%"></p>
+      </div>
+    </div>
+
+    <div *ngFor="let dish of this.dishes">
+      <div class="lineDish">
+        <p class="fieldDish" style="width:2%">{{dish.id}}</p>
+        <input matInput placeholder="Name" class="fieldDish" style="width:20%" (change)="onDishNameChange($event, dish)" value={{dish.name}}>
+        <input matInput type="number" placeholder="Price" class="fieldDish" (change)="onDishPriceChange($event, dish)" value={{dish.price}}>
+        <input matInput type="number" placeholder="Stock" class="fieldDish" (change)="onDishStockChange($event, dish)" value={{dish.stock}}>
+        <button class="button-1" style="width:1%" (click)="onDeleteClick(dish)">-</button>
+      </div>
+    </div>
+
+    <p class="header" style="width:100%; margin-top: 30px;">Add new Dish</p>
+    
+    <form class="lineDish">
+      <input #saveName matInput placeholder="Name" class="fieldDish">
+      <input #savePrice matInput type="number" placeholder="Price" class="fieldDish">
+      <input #saveStock matInput type="number" placeholder="Stock" class="fieldDish">
+    </form>
+
+    <div>
+      <input #addImage matInput type="text" placeholder="Image url" class="fieldDish">
+      <button class="button-1" style="width:100px" (click)="onAddImageClick(addImage.value)">Add image</button>
+    </div>
+
+    <div *ngFor="let url of this.images">
+      <img src="{{url}}"/>
+    </div>
+
+    <button class="button-1" style="width:200px" (click)="onSaveClick(saveName.value, savePrice.value, saveStock.value)">Save</button>
+    
+
+  </div>
+  
+</div>
+

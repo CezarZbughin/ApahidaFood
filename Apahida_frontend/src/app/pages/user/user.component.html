@@ -1,0 +1,59 @@
+<div>
+  <div class="topbar" role="banner">
+    <p class = "title">User</p>
+  </div>
+
+  <div class="content">
+    <div>
+      <div class="lineDish">
+        <p class="header" style="width:2.5%">id</p>
+        <p class="header" style="width:30%">Date</p>
+        <p class="header" style="width:10.5%">Status</p> 
+        <p class="header" style="width:57%"></p>
+      </div>
+    </div>
+
+    <div *ngFor="let order of this.orders">
+      <div class="lineDish">
+        <p class="fieldDish" style="width:2%">{{order.id}}</p>
+        <p class="fieldDish" style="width:30%">{{order.created}}</p>
+
+        <select class="button-1" style="width:10.5%" matNativeControl required [value]="order.status" (change)="onStatusChange($event, order)">
+          <option value="PLACED">PLACED</option>
+          <option value="IN_PREP">IN_PREP</option>
+          <option value="DONE">DONE</option>
+        </select>
+
+        <select class="button-1" style="width:10.5%; background-color: antiquewhite; color:black" matNativeControl required [value]="-1">
+          <option value="-1">Items</option>
+          <option *ngFor="let entry of order.entries" >{{entry.count}}x{{entry.dish.name}}</option>
+        </select>
+
+      </div>
+    </div>
+
+    <p class="header" style="width:100%; margin-top: 30px;">Add new Dish</p>
+    
+    <div class="lineDish">
+      <select #selDish class="button-1" style="width:10.5%" matNativeControl required>
+        <option *ngFor="let dish of this.allDishes" [value]="dish.id">{{dish.name}}</option>
+      </select>
+      <input #count matInput type="number" placeholder="count" class="fieldDish" [value]="1">
+      <button class="button-1" style="width:200px" (click)="onAddClick(selDish.value, count.value)">Add to cart</button>
+    </div>
+    <div class="lineDish">
+      <select class="button-1" style="width:10.5%; background-color: antiquewhite; color:black; margin-left: 20%;" matNativeControl required [value]="-1">
+        <option value="-1">Cart</option>
+        <option *ngFor="let entry of this.entries" >{{entry.count}}x{{entry.dish.name}}</option>
+      </select>
+      <button class="button-1" style="width:200px;" (click)="onPlaceClick()">Place</button>
+    </div>
+
+    <button class="button-1" style="width: 5%;"  (click)="onExportClick(0)">export csv</button>
+    <button class="button-1" style="width: 5%;"  (click)="onExportClick(1)">export excel</button>
+
+  </div>
+  
+  
+</div>
+

@@ -1,0 +1,72 @@
+.topbar {
+    display: flex;
+    align-items: center;
+    background-color: #ecf8f8;
+    color: #283618;
+    font-weight: 600;
+    margin: 0px;
+  }
+  
+  .title {
+    font-size: 30px;
+    margin: 20px;
+  }
+  
+  .content {
+    height: auto;
+    min-height: 1000px;
+    background-color: #eee4e1;
+    display: block;
+  }
+
+  .lineDish {
+    display: flex;
+    margin: 3px;
+    align-items: center;
+  }
+
+  .fieldDish{
+    color: #283618;
+    background-color: #e3d5ca;
+    width: 10%;
+    height: 50px;
+    font-size: 30px;
+    margin: 0.2%;
+    border-radius: 5px;
+    align-items: center;
+  }
+
+  .header{
+    color: #283618;
+    background-color: #e3d5ca;
+    width: 10%;
+    height: 50px;
+    font-size: 30px;
+    border-radius: 5px;
+  }
+  
+  .button-1 {
+    appearance: button;
+    backface-visibility: hidden;
+    background-color: #b2967d;
+    border-radius: 6px;
+    border-width: 0;
+    box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset,rgba(50, 50, 93, .1) 0 2px 5px 0,rgba(0, 0, 0, .07) 0 1px 1px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    height: 55px;
+    line-height: 1.15;
+    margin: 12px 0 0;
+    outline: none;
+    overflow: hidden;
+    padding: 0 25px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 100%;
+  }
